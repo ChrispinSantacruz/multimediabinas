@@ -1,6 +1,6 @@
-import { Outlet, useLocation } from "react-router-dom";
-import { Container, Navbar, Nav, Dropdown } from "react-bootstrap";
 import { AnimatePresence, motion } from "framer-motion";
+import { Container, Dropdown, Nav, Navbar } from "react-bootstrap";
+import { Outlet, useLocation } from "react-router-dom";
 
 function Layout() {
   const location = useLocation();
@@ -15,8 +15,8 @@ function Layout() {
           <Navbar.Collapse id="navbarSupportedContent">
             <Nav className="me-auto">
               <Nav.Link href="/">Inicio</Nav.Link>
-              {/* Menú desplegable con React-Bootstrap */}
-              <Dropdown>
+              {/* Menú desplegable de Ejercicios */}
+              <Dropdown as={Nav.Item} className="me-2">
                 <Dropdown.Toggle as={Nav.Link} id="dropdown-ejercicios">
                   Ejercicios
                 </Dropdown.Toggle>
@@ -29,18 +29,20 @@ function Layout() {
                   <Dropdown.Item href="/luces">Luces</Dropdown.Item>
                   <Dropdown.Item href="/sombras">Sombras</Dropdown.Item>
                   <Dropdown.Item href="/efectos">Efectos</Dropdown.Item>
-                  <Dropdown.Divider />
-                  <Dropdown.Item href="/laboratorio1">Laboratorio: Practica-1</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+              {/* Menú desplegable de Prácticas */}
+              <Dropdown as={Nav.Item}>
+                <Dropdown.Toggle as={Nav.Link} id="dropdown-practicas">
+                  Prácticas
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <Dropdown.Item href="/laboratorio1">Laboratorio: Práctica 1</Dropdown.Item>
                   <Dropdown.Item href="/practica2">Laboratorio: Práctica 2 (Three.js Group)</Dropdown.Item>
                   <Dropdown.Item href="/practica3">Laboratorio: Práctica 3 (Luces R3F)</Dropdown.Item>
                   <Dropdown.Item href="/practica4">Laboratorio: Práctica 4 (lil-gui Luces)</Dropdown.Item>
                   <Dropdown.Item href="/practica5">Laboratorio: Práctica 5 (Materiales y Sombras)</Dropdown.Item>
                   <Dropdown.Item href="/practica6">Laboratorio: Práctica 6 (Casa 3D)</Dropdown.Item>
-                  {/* Puedes agregar aquí más prácticas si creas nuevas rutas, por ejemplo: */}
-                  {/* <Dropdown.Item href="/laboratorio3">Laboratorio: Practica-3</Dropdown.Item> */}
-                  {/* <Dropdown.Item href="/laboratorio4">Laboratorio: Practica-4</Dropdown.Item> */}
-                  {/* <Dropdown.Item href="/laboratorio5">Laboratorio: Practica-5</Dropdown.Item> */}
-                  {/* <Dropdown.Item href="/casa3d">Laboratorio: Practica-6 (Casa 3D)</Dropdown.Item> */}
                 </Dropdown.Menu>
               </Dropdown>
             </Nav>
