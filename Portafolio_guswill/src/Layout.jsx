@@ -17,26 +17,30 @@ function Layout() {
               <Nav.Link href="/">Inicio</Nav.Link>
               {/* Menú desplegable con React-Bootstrap */}
               <Dropdown>
-                <Dropdown.Toggle as={Nav.Link} id="dropdown-custom">
-                  Prácticas
+                <Dropdown.Toggle as={Nav.Link} id="dropdown-ejercicios">
+                  Ejercicios
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
-                  <Dropdown.Item href="/ejercicio1">Geometrías</Dropdown.Item>
-                  <Dropdown.Item href="/ejercicio2">Texturas</Dropdown.Item>
-                  <Dropdown.Item href="/ejercicio3">Plano y Figuras</Dropdown.Item>
-                  <Dropdown.Item href="/ejercicio4">Agrupacion de Objetos - React</Dropdown.Item>
-                  <Dropdown.Item href="/ejercicio5">Agrupacion de Objetos - Three.js</Dropdown.Item>
+                  <Dropdown.Item href="/ejercicio1">Ejercicio 1: Geometrías</Dropdown.Item>
+                  <Dropdown.Item href="/ejercicio2">Ejercicio 2: Texturas</Dropdown.Item>
+                  <Dropdown.Item href="/ejercicio3">Ejercicio 3: Plano y Figuras</Dropdown.Item>
+                  <Dropdown.Item href="/ejercicio4">Ejercicio 4: Agrupación de Objetos - React</Dropdown.Item>
+                  <Dropdown.Item href="/ejercicio5">Ejercicio 5: Agrupación de Objetos - Three.js</Dropdown.Item>
                   <Dropdown.Item href="/luces">Luces</Dropdown.Item>
                   <Dropdown.Item href="/sombras">Sombras</Dropdown.Item>
                   <Dropdown.Item href="/efectos">Efectos</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-              <Dropdown>
-                <Dropdown.Toggle as={Nav.Link} id="dropdown-custom">
-                  Laboratorio
-                </Dropdown.Toggle>
-                <Dropdown.Menu>
-                  <Dropdown.Item href="/laboratorio1">Albedo - Alpha - Transparent</Dropdown.Item>
+                  <Dropdown.Divider />
+                  <Dropdown.Item href="/laboratorio1">Laboratorio: Practica-1</Dropdown.Item>
+                  <Dropdown.Item href="/practica2">Laboratorio: Práctica 2 (Three.js Group)</Dropdown.Item>
+                  <Dropdown.Item href="/practica3">Laboratorio: Práctica 3 (Luces R3F)</Dropdown.Item>
+                  <Dropdown.Item href="/practica4">Laboratorio: Práctica 4 (lil-gui Luces)</Dropdown.Item>
+                  <Dropdown.Item href="/practica5">Laboratorio: Práctica 5 (Materiales y Sombras)</Dropdown.Item>
+                  <Dropdown.Item href="/practica6">Laboratorio: Práctica 6 (Casa 3D)</Dropdown.Item>
+                  {/* Puedes agregar aquí más prácticas si creas nuevas rutas, por ejemplo: */}
+                  {/* <Dropdown.Item href="/laboratorio3">Laboratorio: Practica-3</Dropdown.Item> */}
+                  {/* <Dropdown.Item href="/laboratorio4">Laboratorio: Practica-4</Dropdown.Item> */}
+                  {/* <Dropdown.Item href="/laboratorio5">Laboratorio: Practica-5</Dropdown.Item> */}
+                  {/* <Dropdown.Item href="/casa3d">Laboratorio: Practica-6 (Casa 3D)</Dropdown.Item> */}
                 </Dropdown.Menu>
               </Dropdown>
             </Nav>

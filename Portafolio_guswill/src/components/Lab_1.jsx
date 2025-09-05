@@ -1,6 +1,7 @@
 import { Canvas, useLoader } from "@react-three/fiber";
 import React, { useRef, useEffect } from "react";
-import { TextureLoader} from "three";
+import { TextureLoader } from "three";
+import { Environment } from "@react-three/drei";
 
 const Lab1 = () => {
   const cubeTexture = useLoader(TextureLoader, "/assets/texture1.jpg");
@@ -42,84 +43,55 @@ const Lab1 = () => {
         <meshStandardMaterial color="lightgray" />
       </mesh>
 
-      {/* Practica-5: Comparación de materiales */}
-      {/* Grupo con MeshPhongMaterial */}
-      <group position={[-5, 0, 0]}>
-        {/* Esfera con MeshPhongMaterial */}
-        <mesh position={[0, 2, 0]} castShadow receiveShadow>
-          <sphereGeometry args={[1.5, 32, 32]} />
-          <meshPhongMaterial color="orange" shininess={100} />
-        </mesh>
-        {/* Cubo con MeshPhongMaterial */}
-        <mesh position={[3, 2, 0]} castShadow receiveShadow>
-          <boxGeometry args={[2, 2, 2]} />
-          <meshPhongMaterial color="purple" shininess={30} />
-        </mesh>
-      </group>
+      <Environment preset="warehouse" />
+      {/* <Environment preset="sunset" /> */}
+      {/* <Environment preset="night" /> */}
 
-      {/* Grupo con MeshLambertMaterial */}
-      <group position={[5, 0, 0]}>
-        {/* Esfera con MeshLambertMaterial */}
-        <mesh position={[0, 2, 0]} castShadow receiveShadow>
-          <sphereGeometry args={[1.5, 32, 32]} />
-          <meshLambertMaterial color="green" />
-        </mesh>
-        {/* Cubo con MeshLambertMaterial */}
-        <mesh position={[3, 2, 0]} castShadow receiveShadow>
+      {/* Grupo 1: Solo cubos, alineados y separados */}
+      <group rotation={[8, 0, 0]} position={[-8, 0, 0]}>
+        <mesh position={[0, 1, 0]} castShadow>
           <boxGeometry args={[2, 2, 2]} />
-          <meshLambertMaterial color="blue" />
+          <meshStandardMaterial color="red" />
         </mesh>
-      </group>
-
-      {/* Grupo con MeshStandardMaterial y GUI para metalness/roughness */}
-      <group position={[0, 0, 0]}>
-        {/* Esfera con MeshStandardMaterial */}
-        <mesh position={[0, 2, 0]} castShadow receiveShadow>
-          <sphereGeometry args={[1.5, 32, 32]} />
-          <meshStandardMaterial color="red" metalness={0.5} roughness={0.5} />
-        </mesh>
-        {/* Cubo con MeshStandardMaterial */}
-        <mesh position={[3, 2, 0]} castShadow receiveShadow>
+        <mesh position={[3, 1, 0]} castShadow>
           <boxGeometry args={[2, 2, 2]} />
-          <meshStandardMaterial color="yellow" metalness={0.2} roughness={0.8} />
-        </mesh>
-      </group>
-
-      {/* Grupo 2: rotation={[10, 0, 0]} */}
-      <group rotation={[10, 0, 0]}>
-        {/* Cilindro */}
-        <mesh position={[8, 1, 0]} castShadow>
-          <cylinderGeometry args={[0.5, 0.5, 2, 32]} />
-          <meshStandardMaterial map={coneTexture1} />
-        </mesh>
-        {/* Torus */}
-        <mesh position={[-8, 1, 0]} castShadow>
-          <torusGeometry args={[1, 0.4, 16, 100]} />
-          <meshStandardMaterial map={albedoTexture} alphaMap={alphaTexture} transparent={true} />
-        </mesh>
-        {/* Esfera pequeña */}
-        <mesh position={[0, 1, 4]} castShadow>
-          <sphereGeometry args={[0.8, 32, 32]} />
           <meshStandardMaterial color="orange" />
         </mesh>
+        <mesh position={[6, 1, 0]} castShadow>
+          <boxGeometry args={[2, 2, 2]} />
+          <meshStandardMaterial color="yellow" />
+        </mesh>
       </group>
 
-      {/* Grupo 3: rotation={[15, 0, 0]} */}
-      <group rotation={[15, 0, 0]}>
-        {/* Cubo pequeño */}
-        <mesh position={[-2, 1, 4]} castShadow>
-          <boxGeometry args={[1, 1, 1]} />
+      {/* Grupo 2: Solo conos (triángulos), alineados y separados */}
+      <group rotation={[10, 0, 0]} position={[0, 0, 0]}>
+        <mesh position={[0, 1, 0]} castShadow>
+          <coneGeometry args={[1, 2, 3]} />
+          <meshStandardMaterial color="blue" />
+        </mesh>
+        <mesh position={[3, 1, 0]} castShadow>
+          <coneGeometry args={[1, 2, 3]} />
           <meshStandardMaterial color="purple" />
         </mesh>
-        {/* Cono pequeño */}
-        <mesh position={[2, 1, 4]} castShadow>
-          <coneGeometry args={[0.5, 1.5, 32]} />
+        <mesh position={[6, 1, 0]} castShadow>
+          <coneGeometry args={[1, 2, 3]} />
+          <meshStandardMaterial color="cyan" />
+        </mesh>
+      </group>
+
+      {/* Grupo 3: Solo rectángulos (cajas alargadas), alineados y separados */}
+      <group rotation={[15, 0, 0]} position={[8, 0, 0]}>
+        <mesh position={[0, 1, 0]} castShadow>
+          <boxGeometry args={[3, 1, 1]} />
           <meshStandardMaterial color="green" />
         </mesh>
-        {/* Cilindro pequeño */}
-        <mesh position={[0, 1, 6]} castShadow>
-          <cylinderGeometry args={[0.3, 0.3, 1, 32]} />
-          <meshStandardMaterial color="blue" />
+        <mesh position={[4, 1, 0]} castShadow>
+          <boxGeometry args={[3, 1, 1]} />
+          <meshStandardMaterial color="lime" />
+        </mesh>
+        <mesh position={[8, 1, 0]} castShadow>
+          <boxGeometry args={[3, 1, 1]} />
+          <meshStandardMaterial color="brown" />
         </mesh>
       </group>
     </>
